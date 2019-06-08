@@ -1,4 +1,4 @@
-module github.com/vpagani/goenv
+module github.com/VPagani/goenv
 
 go 1.12
 
