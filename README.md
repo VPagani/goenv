@@ -5,7 +5,7 @@ Environment variables loading utility
 ### **`env.go`**
 
 ```go
-var env = goenv.SetupEnv(".env")
+var env = goenv.Env(".env")
 
 var (
     AppEnv  = env("APP_ENV", "development")
