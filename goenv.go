@@ -44,8 +44,8 @@ func LoadEnv(filename string) (string, error) {
 	return envPath, godotenv.Load(envPath)
 }
 
-// Env helps fetching env vars and applying default values when needed
-func Env(envVar string, defaultValue ...string) string {
+// EnvVar helps fetching env vars and applying default values when needed
+func EnvVar(envVar string, defaultValue ...string) string {
 	value, exists := os.LookupEnv(envVar)
 	if !exists && len(defaultValue) > 0 {
 		return defaultValue[0]
@@ -53,8 +53,8 @@ func Env(envVar string, defaultValue ...string) string {
 	return value
 }
 
-// SetupEnv loads env and returns `Env` function
-func SetupEnv(envFilename string) func(envVar string, defaultValue ...string) string {
+// Env loads env and returns `EnvVar` function
+func Env(envFilename string) func(envVar string, defaultValue ...string) string {
 	_, _ = LoadEnv(envFilename)
-	return Env
+	return EnvVar
 }
